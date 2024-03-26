@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var name = 'a'
+      let obj = {
+        name: 'b',
+        fun1: function () {
+          console.log(this.name)
+        },
+        fun2: () => {
+          console.log(this.name)
+        },
+        fun3: function () {
+          return function () {
+            console.log(this.name)
+          }
+        },
+        fun4: () => {
+          return () => {
+            console.log(this.name)
+          }
+        },
+        fun5: () => {
+          return function () {
+            console.log(this.name)
+          }
+        },
+        fun6: function () {
+          return () => {
+            console.log(this.name)
+          }
+        }
+      }
+      obj.fun1() // b 普通函数，this指向了调用者obj，b
+      obj.fun2() // a 箭头函数，this继承自window, a
+      obj.fun3()() // a fun3()得到一个普通函数，window调用，this指向window， a
+      obj.fun4()() // a fun4是一个箭头函数，没有this，this继承自window，fun4()得到一个箭头函数，没有this,this继承自fun4,this指向window,a
+      obj.fun5()() // a fun5是一个箭头函数，this继承自window，fun5()得到一个普通函数，有自己的this，指向调用者，调用者是window，输出a
+      obj.fun6()() // b fun6是一个普通函数，this指向调用者，也就是obj，fun6()得到一个箭头函数，this继承自fun6,也就是this指向obj，输出b
+    </script>
+  </body>
+</html>

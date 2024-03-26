@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // import { axios_ } from './axios_.js'
+      function axios_(method, baseURL, router = '') {
+        // this.method = method
+        // this.baseURL = baseURL
+        // this.router = router
+        // 创建好应该发送请求
+        return new Promise((resolve, reject) => {
+          // 1. 创建XHR对象
+          const xhr = new XMLHttpRequest()
+
+          // 2. 指定方法和URL
+          xhr.open(method, baseURL + router)
+
+          // 3. 绑定监听事件
+          xhr.addEventListener('loadend', () => {
+            const res = JSON.parse(xhr.response)
+            resolve(res)
+          })
+          // 4. 发送请求
+          xhr.send()
+        })
+      }
+
+      const baseURL = 'http://hmajax.itheima.net/api/city?pname=辽宁省'
+      axios_('GET', baseURL).then((res) => console.log(res))
+    </script>
+  </body>
+</html>

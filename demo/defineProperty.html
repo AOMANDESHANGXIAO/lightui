@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 劫持数组的方法，一旦调用就打印
+      const methodsArray = ['push', 'unshift', 'pop', 'shift']
+
+      const arrayProto = Object.create(Array.prototype)
+
+      methodsArray.forEach((method) => {
+        // 1. 保存原来的方法
+        const origin = arrayProto[method]
+        // console.log(origin)
+        // 2. 改写原来的方法
+        arrayProto[method] = function () {
+          // 2.1 输出调用
+          console.log(method, 'was used')
+          // 2.1 调用原函数
+          return origin.apply(this, arguments)
+        }
+      })
+      // 指定原型
+      const list = []
+
+      list.__proto__ = arrayProto
+      list.push(4)
+      // list.pop()
+      // list.unshift(5)
+      // list.shift()
+      console.log(list)
+    </script>
+  </body>
+</html>

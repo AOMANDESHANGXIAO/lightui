@@ -1,0 +1,77 @@
+$lf-text-color-regular: #606266;
+$lf-dialog-content-font-size: 14px;
+$lf-dialog-title-font-size: 18px;
+$lf-dialog-title-color-regular: #303133;
+$theme-color: #8e43e7;
+// 遮罩层
+.lf-overlay-dialog {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  // opacity: 0.1;
+  transition: all 15s;
+  .lf-dialog {
+    position: absolute;
+    top: 15vh;
+    // width: 500px;
+    box-sizing: border-box;
+    padding: 20px 20px;
+    // left: 50%;
+    // margin-left: 50%;
+    // transform: translateX(-50%);
+    border-radius: 10px;
+    // transform: translate(0, 0);
+  }
+}
+.lf-dialog-header {
+  width: 100%;
+  // background-color: pink;
+  margin-bottom: 20px;
+  color: $lf-dialog-title-color-regular;
+  font-size: $lf-dialog-title-font-size;
+  user-select: none;
+}
+.lf-dialog-close {
+  position: absolute;
+  right: 20px;
+  font-weight: 100;
+  user-select: none;
+  &:hover {
+    cursor: pointer;
+    color: $theme-color;
+  }
+}
+.lf-dialog-message {
+  font-size: $lf-dialog-content-font-size;
+  color: $lf-text-color-regular;
+}
+.lf-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.is-draggable:hover {
+  cursor: move;
+}
+/* 下面我们会解释这些 class 是做什么的 */
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s ease;
+}
+
+.v-enter-from {
+  transform: translateY(-20px);
+}
+.v-enter-tp {
+  transform: none;
+}
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}

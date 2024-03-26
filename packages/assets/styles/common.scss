@@ -1,0 +1,49 @@
+$theme-color: #8e43e7;
+$success-color: #009f4d;
+$info-color: #909399;
+$warning-color: #f47721;
+$danger-color: #ff4c4c;
+$lf-font-weight-primary: 500;
+$lf-alpha-light: 0.15;
+$lf-alpha-deep: 0.7;
+$lf-border-radious-round: 20px;
+$lf-button-text-bgc: #f5f7fa;
+$lf-text-color: #606266;
+$lf-border-color: #eaecf0;
+$lf-large-title-font-size: 50px;
+$lf-normal-title-font-size: 30px;
+$lf-small-title-font-size: 20px;
+/* 隐藏滚动条箭头 */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* 设置滚动条的宽度 */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* 设置滚动条滑块的样式 */
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cccccc;
+}
+
+/* 设置滚动条轨道的样式 */
+::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 4px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}

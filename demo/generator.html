@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 常规函数只能返回单一值，generator函数可以按需一个接一个地返回yield多个值
+      // generator可以暂停
+      function* generate() {
+        yield 1
+        yield* [10, 20, 30]
+      }
+      let gen = generate() // 返回一个生成器
+      for (let g of gen) {
+        console.log(g)
+      }
+      console.log('====')
+      for (let g of gen) {
+        console.log('?')
+        console.log(g)
+      }
+      // // for ... of 可以用来遍历数组
+      // let arr = [10, 20, 30]
+      // for (let element of arr) {
+      //   console.log(element)
+      // }
+      // for (let i in arr) {
+      //   console.log(i)
+      // }
+      // arr.forEach((item) => console.log(item))
+      // // for ... of 可以用来遍历str等可迭代的对象
+      // let str = 'str'
+      // for (let s of str) {
+      //   console.log(s)
+      // }
+      // let map_ = new Map()
+      // map_.set('haha', 123)
+      // map_.set('hh', 345)
+      // for (let m of map_) {
+      //   console.log(m)
+      // }
+      // function f() {
+      //   for (let a of arguments) {
+      //     console.log(a)
+      //   }
+      // }
+      // f(1, 2, 3, 4, 4)
+    </script>
+  </body>
+</html>

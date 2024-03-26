@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let target = {
+        m() {
+          // 检查 this 的指向是不是 proxyObj
+          console.log(this === proxyObj)
+        }
+      }
+      let handler = {}
+      let proxyObj = new Proxy(target, handler)
+
+      proxyObj.m() // 输出: true
+      target.m() //输出: false
+    </script>
+  </body>
+</html>
